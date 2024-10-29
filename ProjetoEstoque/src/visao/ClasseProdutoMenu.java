@@ -3,10 +3,7 @@ package visao;
 import dominio.ClasseProduto;
 import servico.ClasseProdutoServico;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.InputMismatchException;
-=======
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
 import java.time.LocalDate;
 
 public class ClasseProdutoMenu extends BaseMenu{
@@ -21,7 +18,6 @@ public class ClasseProdutoMenu extends BaseMenu{
     @Override
     public void ExibirMenu() {
 
-<<<<<<< HEAD
         String opcao = "0";
         
         do{
@@ -58,51 +54,10 @@ public class ClasseProdutoMenu extends BaseMenu{
                     break;
                     
                 case "9":
-=======
-        int opcao = 0;
-
-        while (opcao != 9) {
-            Util.LimparConsole();
-            System.out.println("CADASTRO DE CLASSES DE PRODUTO");
-            System.out.println("""
-                1 - Listar
-                2 - Localizar
-                3 - Adicionar
-                4 - Atualizar
-                5 - Remover
-                9 - Sair
-                """);
-                System.out.print("Selecione uma opção: ");
-            opcao = this.scanner.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    this.Listar();
-                    break;
-
-                case 2:
-                    this.Localizar();
-                    break;
-
-                case 3:
-                    this.Adicionar();
-                    break;
-
-                case 4:
-                    this.Atualizar();
-                    break;
-
-                case 5:
-                    this.Remover();
-                    break;
-
-                case 9:
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
                     System.out.println("Saindo...");
                     break;
                     
                 default:
-<<<<<<< HEAD
                     Util.LimparConsole();
                     System.out.println("Opção inválida.");
                     System.out.print("Clique ENTER para continuar. ");
@@ -112,18 +67,10 @@ public class ClasseProdutoMenu extends BaseMenu{
         }
     }while(!opcao.equals("9"));
 }
-=======
-                    System.out.println("Opção inválida.");
-                    break;
-            }
-        }
-    }
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
 
     @Override
     public void Listar() {
         Util.LimparConsole();
-<<<<<<< HEAD
         ArrayList<ClasseProduto> lista = this.srv.Navegar();
         if(lista.size() == 0){
             System.out.println("lista vazia");
@@ -133,14 +80,6 @@ public class ClasseProdutoMenu extends BaseMenu{
                 this.Imprimir(produto);
         }
     }
-=======
-        System.out.println("Listando");  
-
-        ArrayList<ClasseProduto> lista = this.srv.Navegar();
-        for (ClasseProduto produto : lista) {
-            this.Imprimir(produto);
-        }
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
         System.out.print("Clique ENTER para continuar. ");
         this.scanner.nextLine();
         this.scanner.nextLine();
@@ -149,7 +88,6 @@ public class ClasseProdutoMenu extends BaseMenu{
     @Override
     public void Localizar() {
         Util.LimparConsole();
-<<<<<<< HEAD
         ArrayList<ClasseProduto> lista = this.srv.Navegar();
         if(lista.size() == 0){
             System.out.println("lista vazia");
@@ -168,33 +106,15 @@ public class ClasseProdutoMenu extends BaseMenu{
                 this.scanner.next(); 
         }
     }
-=======
-        System.out.println("Localizando");
-
-        System.out.printf("Informe o codigo da classe do produto: ");
-        int cod = this.scanner.nextInt();
-
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
         ClasseProduto cp = this.srv.Ler(cod);
 
         if (cp != null) {
             this.Imprimir(cp);
         }
         else{
-<<<<<<< HEAD
             System.out.println("ERRO!! Classe de Produto não encontrada!");
         }
     }
-=======
-            System.out.println("""
-                    =======ERRO=======
-                     Classe de Produto
-                     não encontrada!!
-                    ==================
-                    """);
-        }
-
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
         System.out.print("Clique ENTER para continuar. ");
         this.scanner.nextLine();
         this.scanner.nextLine();
@@ -203,11 +123,7 @@ public class ClasseProdutoMenu extends BaseMenu{
     @Override
     public void Adicionar() {
         Util.LimparConsole();
-<<<<<<< HEAD
         System.out.println("Adicionando...");
-=======
-        System.out.println("Adicionando");
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
 
         System.out.printf("Informe a descrição: ");
         String descricao = this.scanner.next();
@@ -216,25 +132,12 @@ public class ClasseProdutoMenu extends BaseMenu{
         cp.setDescricao(descricao);
         cp.setDataDeInclusao(LocalDate.now());
 
-<<<<<<< HEAD
-=======
-        //ClasseProduto cpnovo = this.srv.Adicionar(cp);
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
 
         if(this.srv.Adicionar(cp) != null){
             System.out.println("Classe de Produto adicionada com sucesso!");
         }
         else{
-<<<<<<< HEAD
             System.out.println("ERRO! classe nao adicionada.");
-=======
-            System.out.println("""
-                    =======ERRO=======
-                     Classe de Produto
-                     não adicionada!!
-                    ==================
-                    """);
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
         }
 
         System.out.println("Clique ENTER para continuar. ");
@@ -245,7 +148,6 @@ public class ClasseProdutoMenu extends BaseMenu{
     @Override
     public void Atualizar() {
         Util.LimparConsole();
-<<<<<<< HEAD
         ArrayList<ClasseProduto> lista = this.srv.Navegar();
         if(lista.size() == 0){
             System.out.println("lista vazia");
@@ -266,12 +168,6 @@ public class ClasseProdutoMenu extends BaseMenu{
                 this.scanner.next(); 
             }
         }
-=======
-        System.out.println("Atualizando");
-
-        System.out.printf("Informe o codigo da classe do produto: ");
-        int cod = this.scanner.nextInt();
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
 
         ClasseProduto cp = this.srv.Ler(cod);
 
@@ -280,7 +176,6 @@ public class ClasseProdutoMenu extends BaseMenu{
             String descricao = this.scanner.next();
             cp.setDescricao(descricao);
 
-<<<<<<< HEAD
             if(this.srv.Editar(cp) != null){
                 System.out.println("Alteração realizada com sucesso!");
             }
@@ -296,38 +191,11 @@ public class ClasseProdutoMenu extends BaseMenu{
         this.scanner.nextLine();
         this.scanner.nextLine();
     
-=======
-            if(this.srv.Editar(cp) != null){//se devolveu diferente de nulo é pq deu certo
-                System.out.println("Alteração realizada com sucesso!");
-            }
-            else{
-                System.out.println("""
-                    =======ERRO=======
-                     Classe de Produto
-                       não alterada!!
-                    ==================
-                    """);
-            }
-        }
-        else{
-            System.out.println("""
-                    =======ERRO=======
-                     Classe de Produto
-                     não encontrada!!
-                    ==================
-                    """);
-
-        System.out.print("Clique ENTER para continuar. ");
-        this.scanner.nextLine();
-        this.scanner.nextLine();
-    }
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
 }
 
     @Override
     public void Remover() {
         Util.LimparConsole();
-<<<<<<< HEAD
         ArrayList<ClasseProduto> lista = this.srv.Navegar();
         if(lista.size() == 0){
             System.out.println("lista vazia");
@@ -347,12 +215,6 @@ public class ClasseProdutoMenu extends BaseMenu{
             this.scanner.next(); 
         }
     }
-=======
-        System.out.println("Removendo"); 
-        
-        System.out.printf("Informe o codigo da classe do produto: ");
-        int cod = this.scanner.nextInt();
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
 
         ClasseProduto cp = this.srv.Ler(cod);
 
@@ -361,22 +223,10 @@ public class ClasseProdutoMenu extends BaseMenu{
                 System.out.println("Removido com sucesso!");
             }
             else{
-<<<<<<< HEAD
                 System.out.println("ERRO!! Classe não encontrada.");
             }
         }
     }
-=======
-                System.out.println("""
-                    =======ERRO=======
-                     Classe de Produto
-                     não encontrada!!
-                    ==================
-                    """);
-            }
-        }
-
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
         System.out.print("Clique ENTER para continuar. ");
         this.scanner.nextLine();
         this.scanner.nextLine();
@@ -391,8 +241,4 @@ public class ClasseProdutoMenu extends BaseMenu{
         System.out.println("=========================================================================================");
         System.out.println();
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 6dc55885ac0efceae0f17149947731b35ded9ee4
